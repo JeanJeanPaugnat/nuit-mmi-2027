@@ -44,7 +44,7 @@ body {
 }
 
 .parallax-layer.bg-gradient {
-  transform: translateY(cacl(5% - var(--scroll-y)));
+  transform: translateY(calc(5% - var(--scroll-y)));
   z-index: -1; 
   filter: blur(calc(calc(var(--scroll-y) / var(--window-h))*10));
 
