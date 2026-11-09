@@ -1,5 +1,5 @@
 'use client'
-import { motion, useScroll } from "motion/react"
+import { motion, useScroll, useTransform } from "motion/react"
 import url from "@/public/logo-nuit-mmi.svg"
 import Image from "next/image"
 import Ghost from "./ghost"
@@ -7,10 +7,15 @@ import Ghost from "./ghost"
 export default function HeaderScroll() {
     const { scrollY } = useScroll()
 
+
+    const yBack = useTransform(scrollY, (latest) => latest * -0.4)
+    
+    const yFront = useTransform(scrollY, (latest) => latest * -2)
+
     return (
         <header className="relative flex h-dvh items-center justify-center overflow-hidden px-4">
             <motion.div 
-                style={{ y: scrollY }} 
+                style={{ y: yBack }}    
                 className="pointer-events-none absolute inset-0 flex text-blue-900"
             >
                 <Ghost className="absolute top-6 left-4 sm:top-10 sm:left-20 -rotate-16 h-28 sm:h-44 md:h-60 opacity-80 sm:opacity-100" variant="sm"/>
@@ -24,10 +29,13 @@ export default function HeaderScroll() {
                 src={url}
                 alt="Logo Nuit MMI"
                 priority
-                className="relative z-10 w-4/5 max-w-[280px] sm:max-w-[420px] md:max-w-[580px] h-auto drop-shadow-lg select-none"
+                className="relative z-10 w-4/5 max-w-[280px] sm:max-w-[420px] md:max-w-[580px] h-auto select-none"
             />
 
-            <motion.div className="pointer-events-none absolute inset-0 flex text-white">
+            <motion.div 
+                style={{ y: yFront }}  
+                className="pointer-events-none absolute inset-0 flex text-white"
+            >
                 <Ghost className="absolute top-1/4 -left-10 sm:-left-8 rotate-8 h-44 sm:h-64 md:h-80 lg:h-100" variant="sm"/>
                 <Ghost className="absolute top-1/10 sm:top-1/6 -right-12 sm:-right-16 -rotate-6 h-48 sm:h-72 md:h-96 lg:h-120" variant="lg"/>
                 <Ghost className="absolute -bottom-24 sm:-bottom-32 md:-bottom-40 left-1/4 sm:left-2/7 -rotate-12 h-48 sm:h-72 md:h-96 lg:h-120" variant="lg"/>
