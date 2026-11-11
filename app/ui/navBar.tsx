@@ -11,7 +11,7 @@ export default function NavBar() {
         { name: "Accueil", href: "#" },
         { name: "À propos", href: "#" },
         { name: "Programme", href: "#" },
-        { name: "Défis", href: "#" },
+        { name: "Défis", href: "#xxx" },
         { name: "Contact", href: "#" },
     ];
 
@@ -30,6 +30,11 @@ export default function NavBar() {
                         <motion.li
                             key={item.name}
                             whileHover={{
+                                backgroundColor: "#00041D",
+                                color: "#fff",
+                            }}
+                            whileTap={{ scale: 0.95 }}
+                            whileFocus={{ 
                                 backgroundColor: "#00041D",
                                 color: "#fff",
                             }}
