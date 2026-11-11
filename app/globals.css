@@ -38,7 +38,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #00041D;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
 }
 
@@ -86,7 +86,7 @@ body {
   filter: blur(calc(calc(var(--scroll-y) / var(--window-h))*20));
 }
 
-.parallax {
-
+.bg-gradient {
+  background: linear-gradient(180deg, #FFF 0%, #8685C2 45.67%, #7170A0 58.65%, #00041D 100%);
 }
 
