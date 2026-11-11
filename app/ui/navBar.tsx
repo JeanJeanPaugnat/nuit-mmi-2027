@@ -16,22 +16,31 @@ export default function NavBar() {
     ];
 
     return (
-        <nav className="bg-foreground absolute self-center flex mt-8 items-center z-51 w-2xl rounded-2xl justify-between px-4 py-2.5">
+        <motion.nav
+            initial={{ y: -16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            aria-label="Navigation principale"
+            className="bg-foreground fixed top-8 left-1/2 z-51 h-fit flex w-2xl max-w-[calc(100vw-2rem)] -translate-x-1/2 items-center justify-between rounded-2xl px-4 py-2.5"
+        >
                 <Image src={url} width={45} height={45} alt="logo nuit mmi" />
 
-                <ul className="flex space-x-4 gap-3 text-gray-dark text-sm font-google">
-                    {navItems.map((item) =>(
-                        <motion.li 
-                        whileHover={{
-                            backgroundColor: '#254789',
-                            padding: '0.75rem 1.5rem',
-                            borderRadius: '100rem'
-                        }}
-                        className="px-3 py-6"
-                        ><a href={item.href} className="">{item.name}</a></motion.li>
+                <ul className="flex items-center gap-3 text-sm font-google">
+                    {navItems.map((item) => (
+                        <motion.li
+                            key={item.name}
+                            whileHover={{
+                                backgroundColor: "#00041D",
+                                color: "#fff",
+                            }}
+                            transition={{ duration: 0.2 }}
+                            className="rounded-full px-6 py-3.5 text-gray-dark"
+                        >
+                            <a href={item.href}>{item.name}</a>
+                        </motion.li>
                     ))}
 
                 </ul>
-        </nav>
+        </motion.nav>
     )
 }
