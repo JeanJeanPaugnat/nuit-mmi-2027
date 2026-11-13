@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Titillium_Web, Google_Sans } from "next/font/google"
 import "./globals.css";
 import BlurVignette from "./ui/blurVignette";
 import NavBar from "./ui/navBar";
+import Footer from "./ui/footer";
 
 const titilliumWeb = Titillium_Web({
   variable: "--font-titillium",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <NavBar />
         <BlurVignette />
         {children}
+        <Footer />
       </body>
     </html>
   );
